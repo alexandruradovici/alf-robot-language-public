@@ -8,8 +8,8 @@ run:
 	@cd verify && ./run_all.sh ../main.js
 
 pack:
-	zip -r robot.zip verify/ Makefile.checker \
-		README.md
+	zip -r robot.zip verify/ Makefile.checker\
+		README.md 
 
 clean:
 	rm -rf verify/output/
