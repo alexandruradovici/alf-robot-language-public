@@ -16,6 +16,10 @@ else
 	npm install
 fi
 
+passed=0
+failed=0
+total=0
+
 cd -
 
 for folder in robot/*
@@ -30,33 +34,42 @@ do
 			echo `basename $folder`
 			P=10
 		fi
-		for file in "$folder"/*.s
-		do
-			inputfile="verify/$file"
-			outputfile=output/`basename "$file"`.out
-			originalfile="$file.out"
-			errorsfile=output/`basename "$file"`.err
-			title=`head -n 1 "$file" | grep '#' | cut -d '#' -f 2`
-			if [ `echo -n "$title" | wc -c` -eq 0 ];
-			then
-				title=`basename $file`
-			fi
-			node "$1" "$inputfile" > "$outputfile"
-			strtitle="Verifying $title"
-			printf '%s' "$strtitle"
-			pad=$(printf '%0.1s' "."{1..60})
-			padlength=65
-			if diff "$originalfile" "$outputfile" &> "$errorsfile"
-			then
-				str="ok (""$P""p)"
-				POINTS=$(($POINTS+$P))
-			else
-				str="error (0p)"
-			fi
-			printf '%*.*s' 0 $((padlength - ${#strtitle} - ${#str} )) "$pad"
-		    printf '%s\n' "$str"
-		done
+		if [ $failed == 0 ] || ! (echo $folder | grep bonus &> /dev/null);
+		then
+			for file in "$folder"/*.s
+			do
+				inputfile="verify/$file"
+				outputfile=output/`basename "$file"`.out
+				originalfile="$file.out"
+				errorsfile=output/`basename "$file"`.err
+				title=`head -n 1 "$file" | grep '#' | cut -d '#' -f 2`
+				if [ `echo -n "$title" | wc -c` -eq 0 ];
+				then
+					title=`basename $file`
+				fi
+				node "$1" "$inputfile" > "$outputfile"
+				strtitle="Verifying $title"
+				printf '%s' "$strtitle"
+				pad=$(printf '%0.1s' "."{1..60})
+				padlength=65
+				if diff "$originalfile" "$outputfile" &> "$errorsfile"
+				then
+					str="ok (""$P""p)"
+					passed=$(($passed+1))
+					POINTS=$(($POINTS+$P))
+				else
+					str="error (0p)"
+					failed=$(($failed+1))
+				fi
+				total=$(($total+1))
+				printf '%*.*s' 0 $((padlength - ${#strtitle} - ${#str} )) "$pad"
+			    printf '%s\n' "$str"
+			done
+		else
+			echo "Not verifying bonus, you have $failed failed tests"
+		fi
 	fi
 done
 
+echo 'Tests: ' $passed '/' $total
 echo 'Points: '$POINTS
