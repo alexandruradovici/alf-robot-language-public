@@ -1,0 +1,20 @@
+# More repeat
+
+JUMP 8,8
+TURN left, 10
+REPEAT 50
+	TURN left, 6
+	FORWARD 6
+END
+
+REPEAT 50
+	TURN left, 7
+	REPEAT 8
+		TURN right, 6
+		FORWARD 20
+	END
+	BACKWARD 20
+END
+
+JUMP 0,0
+

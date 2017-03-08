@@ -1,0 +1,3 @@
+# Command Error
+SOME_UNKNOWN_COMMAND
+

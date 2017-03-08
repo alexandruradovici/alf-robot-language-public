@@ -1,0 +1,5 @@
+# Simple Repeat
+REPEAT 50
+FORWARD 10
+FORWARD 10
+END
