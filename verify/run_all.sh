@@ -43,7 +43,7 @@ else
 			then
 				for file in "$folder"/*.s
 				do
-					inputfile="verify/$file"
+					inputfile=`pwd`/"$file"
 					outputfile=output/`basename "$file"`.out
 					originalfile="$file.out"
 					errorsfile=output/`basename "$file"`.err
