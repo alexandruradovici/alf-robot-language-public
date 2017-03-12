@@ -91,6 +91,6 @@ echo 'Points: '$POINTS
 
 if [ "$passed" != "$total" ];
 then
-	echo -e "Original File                            | Your file"
+	echo -e "Original file						      | Your file" 1>&2
 	cat $errorslist 1>&2
 fi
