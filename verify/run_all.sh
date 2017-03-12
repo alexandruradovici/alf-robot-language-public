@@ -8,6 +8,9 @@ POINTS=0
 
 dir=`dirname "$1"`
 
+errorslist=$dir/errors.out
+rm -f $errorslist
+
 cd "$dir"
 if [ -f yarn.lock ];
 then
@@ -21,7 +24,10 @@ failed=0
 total=0
 
 echo '{ "node":true, "esnext":true }' > .jshintrc
-if ! jshint *.js;
+if [ ! -f `basename "$1"` ];
+then
+	echo "Your main.js file is missing"
+elif ! jshint *.js;
 then
 	echo "Please review your code, you have jshint errors"
 else
@@ -57,7 +63,7 @@ else
 					printf '%s' "$strtitle"
 					pad=$(printf '%0.1s' "."{1..60})
 					padlength=65
-					if diff "$originalfile" "$outputfile" &> "$errorsfile"
+					if diff -y "$originalfile" "$outputfile" &> "$errorsfile"
 					then
 						str="ok (""$P""p)"
 						passed=$(($passed+1))
@@ -65,6 +71,9 @@ else
 					else
 						str="error (0p)"
 						failed=$(($failed+1))
+						echo "--------------" >> $errorslist 
+						echo $strtitle >> $errorslist
+						head -10 "$errorsfile" >> $errorslist
 					fi
 					total=$(($total+1))
 					printf '%*.*s' 0 $((padlength - ${#strtitle} - ${#str} )) "$pad"
@@ -79,3 +88,9 @@ fi
 
 echo 'Tests: ' $passed '/' $total
 echo 'Points: '$POINTS
+
+if [ "$passed" != "$total" ];
+then
+	echo -e "Original File \t| Your file"
+	cat $errorslist 1>&2
+fi
