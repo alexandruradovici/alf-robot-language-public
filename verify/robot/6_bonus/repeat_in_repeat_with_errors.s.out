@@ -1,5 +1,5 @@
 OK 0, 0, 90
-ERROR LINE 3: TuRn has 2 parametres, you wrote 1
+ERROR LINE 3: TuRn has 2 parameters, you wrote 1
 OK 0, 0, 90
 OK 6, 0, 90
 ERROR LINE 6: Unknown command anothercommand
@@ -17,7 +17,7 @@ OK 30, 0, 90
 ERROR LINE 6: Unknown command anothercommand
 OK 30, 0, 90
 OK 30, 0, 90
-ERROR LINE 3: TuRn has 2 parametres, you wrote 1
+ERROR LINE 3: TuRn has 2 parameters, you wrote 1
 OK 30, 0, 90
 OK 36, 0, 90
 ERROR LINE 6: Unknown command anothercommand
@@ -35,7 +35,7 @@ OK 60, 0, 90
 ERROR LINE 6: Unknown command anothercommand
 OK 60, 0, 90
 OK 60, 0, 90
-ERROR LINE 3: TuRn has 2 parametres, you wrote 1
+ERROR LINE 3: TuRn has 2 parameters, you wrote 1
 OK 60, 0, 90
 OK 66, 0, 90
 ERROR LINE 6: Unknown command anothercommand
@@ -53,7 +53,7 @@ OK 90, 0, 90
 ERROR LINE 6: Unknown command anothercommand
 OK 90, 0, 90
 OK 90, 0, 90
-ERROR LINE 3: TuRn has 2 parametres, you wrote 1
+ERROR LINE 3: TuRn has 2 parameters, you wrote 1
 OK 90, 0, 90
 OK 96, 0, 90
 ERROR LINE 6: Unknown command anothercommand
@@ -71,7 +71,7 @@ OK 120, 0, 90
 ERROR LINE 6: Unknown command anothercommand
 OK 120, 0, 90
 OK 120, 0, 90
-ERROR LINE 3: TuRn has 2 parametres, you wrote 1
+ERROR LINE 3: TuRn has 2 parameters, you wrote 1
 OK 120, 0, 90
 OK 126, 0, 90
 ERROR LINE 6: Unknown command anothercommand

@@ -1,6 +1,6 @@
-ERROR LINE 2: turn has 2 parametres, you wrote 1
-ERROR LINE 3: Turn has 2 parametres, you wrote 1
+ERROR LINE 2: turn has 2 parameters, you wrote 1
+ERROR LINE 3: Turn has 2 parameters, you wrote 1
 OK 1000, 0, 90
-ERROR LINE 5: tUrn has 2 parametres, you wrote 1
+ERROR LINE 5: tUrn has 2 parameters, you wrote 1
 OK 920, 0, 90
 OK 80, 80, 90

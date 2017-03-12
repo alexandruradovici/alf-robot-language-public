@@ -1,6 +1,6 @@
 ERROR LINE 2: turn parameter 1 requires a left/right, you wrote left 10
-ERROR LINE 3: Turn has 2 parametres, you wrote 1
+ERROR LINE 3: Turn has 2 parameters, you wrote 1
 OK 1000, 0, 90
-ERROR LINE 5: tUrn has 2 parametres, you wrote 1
+ERROR LINE 5: tUrn has 2 parameters, you wrote 1
 ERROR LINE 6: backwArd parameter 1 requires a number, you wrote _
 ERROR LINE 7: juMp parameter 1 requires a number or ~, you wrote none
