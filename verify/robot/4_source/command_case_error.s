@@ -1,4 +1,4 @@
-# Command case
+# Command case error
 turn left 10, 10
 Turn right twenty
 Forward 1000
