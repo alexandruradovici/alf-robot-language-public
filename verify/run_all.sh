@@ -63,7 +63,7 @@ else
 					printf '%s' "$strtitle"
 					pad=$(printf '%0.1s' "."{1..60})
 					padlength=65
-					if diff -y "$originalfile" "$outputfile" &> "$errorsfile"
+					if diff --side-by-side --suppress-common-lines "$originalfile" "$outputfile" &> "$errorsfile"
 					then
 						str="ok (""$P""p)"
 						passed=$(($passed+1))
